@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+
+    @if(idBook){
+      <h3 class="mb-3">{{'updateBook' | translate}}</h3>
+    } @else {
+      <h3 class="mb-3">{{'newBook' | translate}}</h3>
+    }
+
+    <form class="row g-3" #bookForm="ngForm">
+
+      <div class="col-md-6">
+        <label for="title" class="form-label">{{'title' | translate}}</label>
+        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book.title" required>
+        @if(invalidInput('title')){
+          <span class="form-text text-danger">
+            {{'requiredField' | translate}}
+          </span>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label for="autor" class="form-label">{{'author' | translate}}</label>
+        <input type="text" class="form-control" id="autor" name="author" [(ngModel)]="book.author" required>
+        @if (invalidInput('author')) {
+          <span class="form-text text-danger">
+            {{'requiredField' | translate}}
+          </span>
+        }
+      </div>
+
+      <div class="col-6">
+        <label for="editorial" class="form-label">{{'editorial' | translate}}</label>
+        <input type="text" class="form-control" id="editorial" name="editorial" [(ngModel)]="book.editorial" required>
+        @if (invalidInput('editorial')) {
+          <span class="form-text text-danger">
+            {{'requiredField' | translate}}
+          </span>
+        }
+      </div>
+
+      <div class="col-6">
+        <label for="year" class="form-label">{{'year' | translate}}</label>
+        <input type="number" class="form-control" id="year" name="year" [(ngModel)]="book.year" required>
+          @if(invalidInput('year')){
+            <span class="form-text text-danger">
+              {{'requiredField' | translate}}
+            </span>
+          }
+      </div>
+
+      <div class="col-md-6">
+        <label for="category" class="form-label">{{'category' | translate}}</label>
+        <input type="text" class="form-control" id="category" name="category" [(ngModel)]="book.category" required>
+        @if (invalidInput('category')) {
+          <span class="form-text text-danger">
+            {{'requiredField' | translate}}
+          </span>
+        }
+      </div>
+
+      <div class="col-md-6 mt-5 pt-2">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck" [(ngModel)]="book.read"
+            name="read">
+          <label class="form-check-label" for="flexSwitchCheck">{{'readBook' | translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-12 text-end">
+        <button type="button" class="btn btn-secondary" routerLink="/libros">{{'cancel' | translate}}</button>
+        &nbsp;
+        @if (idBook) {
+          <button type="button" class="btn btn-primary" [disabled]="bookForm.invalid" (click)="updateBook()">{{'update' | translate}}</button>
+        } @else {
+          <button type="button" class="btn btn-primary" [disabled]="bookForm.invalid" (click)="saveBook()">{{'save' | translate}}</button>
+        }
+      </div>
+    </form>
+  </div>
+  <div class="col-md-1"></div>
+</div>

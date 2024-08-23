@@ -1,0 +1,23 @@
+{
+  "name": "book-service",
+  "version": "1.0.0",
+  "description": "- Iniciar el proyecto `npm init`\r - Ejecutar el index.js `node index` o `node index.js`\r - Instalar nodemon para ejecutar el index de forma automática cada vez que hay cambios `npm install -g nodemon`\r - Añadir `\"dev\": \"nodemon index.js\"` a los scripts del package.json para arrancar el proyecto en desarrollo con `npm run dev`\r - Añadir `\"start\": \"node index.js\"` a los scripts del package.json para arrancar el proyecto en producción con `npm start`\r - Instalar `npm i cors dotenv express express-validator mongoose bcryptjs jsonwebtoken`\r - Instalar `npm install cryptr`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Antonio Romero",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cryptr": "^6.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5"
+  }
+}
