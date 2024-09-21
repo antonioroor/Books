@@ -9,13 +9,15 @@
   </div>
 
   <div class="col-md-4 text-end">
-    <button type="button" class="btn btn-primary" (click)="exportExcel()"><i class="fa-solid fa-download"></i></button>
+    <button type="button" class="btn btn-primary" (click)="exportExcel()" *ngIf="books.length > 0">
+      <i class="fa-solid fa-download"></i>
+    </button>
     &nbsp;
     <button type="button" class="btn btn-primary" routerLink="/nuevo-libro">{{'add' | translate}}</button>
   </div>
 </div>
 
-<table class="table table-striped mt-3">
+<table class="table table-striped mt-3" *ngIf="books.length > 0">
   <thead>
     <tr>
       <th scope="col">{{'title' | translate}}</th>
@@ -49,7 +51,7 @@
   </tbody>
 </table>
 <ngb-pagination [collectionSize]="booksToShow.length" [pageSize]="pageSize" [(page)]="page"
-  aria-label="Default pagination">
+  aria-label="Pagination" *ngIf="books.length > 0">
 </ngb-pagination>
 
 <app-book-modal id={{idBook}} (bookModalEvent)="reloadTable($event)"></app-book-modal>

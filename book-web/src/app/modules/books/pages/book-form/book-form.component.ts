@@ -80,13 +80,14 @@ export class BookFormComponent implements OnInit {
             this.toast.success(msg);
           });
         } else {
-          this.translate.get('error').subscribe((msg: string) => {
+          this.translate.get(`${res.code}`).subscribe((msg: string) => {
             this.toast.error(msg);
           });
+          this.toast.error(res.msg);
         }
       },
       error: () => {
-        this.translate.get('error').subscribe((msg: string) => {
+        this.translate.get('err500').subscribe((msg: string) => {
           this.toast.error(msg);
         });
       },
@@ -103,13 +104,13 @@ export class BookFormComponent implements OnInit {
           this.book = res;
         } else {
           this.router.navigateByUrl('/libros');
-          this.translate.get('error').subscribe((msg: string) => {
+          this.translate.get(`${res.code}`).subscribe((msg: string) => {
             this.toast.error(msg);
           });
         }
       },
       error: () => {
-        this.translate.get('error').subscribe((msg: string) => {
+        this.translate.get('err500').subscribe((msg: string) => {
           this.toast.error(msg);
         });
       },
@@ -128,13 +129,13 @@ export class BookFormComponent implements OnInit {
             this.toast.success(msg);
           });
         } else {
-          this.translate.get('error').subscribe((msg: string) => {
+          this.translate.get(`${res.code}`).subscribe((msg: string) => {
             this.toast.error(msg);
           });
         }
       },
       error: () => {
-        this.translate.get('error').subscribe((msg: string) => {
+        this.translate.get('err500').subscribe((msg: string) => {
           this.toast.error(msg);
         });
       },

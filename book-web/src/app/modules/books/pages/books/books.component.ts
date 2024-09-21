@@ -60,18 +60,21 @@ export class BooksComponent implements OnInit {
    * Obtiene la lista de libros
    */
   public findAllBooks(): void {
+    this.books = [];
     this.bookService
       .findAllBooks()
       .pipe(take(1))
       .subscribe({
         next: (res) => {
-          if (res) {
+          if (res.length > 0) {
             this.books = res;
             this.booksToShow = res;
+          } else {
+            this.books = [];
           }
         },
         error: () => {
-          this.translate.get('error').subscribe((msg: string) => {
+          this.translate.get('err500').subscribe((msg: string) => {
             this.toast.error(msg);
           });
         },

@@ -33,16 +33,16 @@ export class BookModalComponent {
       .pipe(take(1))
       .subscribe({
         next: (res) => {
-          if (res) {
+          if (res.ok) {
             this.bookModalEvent.emit('bookDeleted');
           } else {
-            this.translate.get('error').subscribe((msg: string) => {
+            this.translate.get(`${res.code}`).subscribe((msg: string) => {
               this.toast.error(msg);
             });
           }
         },
         error: () => {
-          this.translate.get('error').subscribe((msg: string) => {
+          this.translate.get('err500').subscribe((msg: string) => {
             this.toast.error(msg);
           });
         },

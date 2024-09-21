@@ -13,7 +13,6 @@
   "description": "Descripción",
   "editBook": "Editar libro",
   "editorial": "Editorial",
-  "error": "Se ha producido un error en la aplicación.",
   "filterBooks": "Filtrar libros",
   "newBook": "Nuevo libro",
   "platform": "Plataforma",
@@ -26,5 +25,7 @@
   "update": "Actualizar",
   "updateBook": "Actualizar libro",
   "updateOk": "Libro actualizado con éxito",
-  "year": "Año"
+  "year": "Año",
+  "err500": "¡Vaya! Algo salió mal. Por favor, inténtelo de nuevo más tarde.",
+  "err404": "El registro no ha sido encontrado"
 }
