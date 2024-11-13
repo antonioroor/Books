@@ -54,7 +54,7 @@ export class BookService {
    * Eliminar libro
    * @param id del libro a eliminar
    */
-  public deleteBookById(id: string): Observable<Book> {
+  public deleteBookById(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`).pipe(
       catchError((e) => of(e.error)));
   }
